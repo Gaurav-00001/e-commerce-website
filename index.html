@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Essentials Store - Your One-Stop Shop</title>
+    <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-shopping-bag"></i>
+                <span>Daily Essentials</span>
+            </div>
+            <nav class="nav">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#products" class="nav-link">Products</a>
+                <a href="aboutus.html" class="nav-link">About</a>
+            </nav>
+            <div class="header-actions">
+                <button class="cart-btn" id="cartBtn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Your Daily Essentials, Delivered</h1>
+            <p>Shop for all your everyday needs in one place</p>
+            <a href="#products" class="btn btn-primary">Shop Now</a>
+        </div>
+    </section>
+
+    <section class="categories">
+        <div class="container">
+            <h2>Shop by Category</h2>
+            <div class="category-buttons">
+                <button class="category-btn active" data-category="all">All Products</button>
+                <button class="category-btn" data-category="groceries">Groceries</button>
+                <button class="category-btn" data-category="hygiene">Hygiene</button>
+                <button class="category-btn" data-category="household">Household</button>
+                <button class="category-btn" data-category="beverages">Beverages</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section" id="products">
+        <div class="container">
+            <h2>Our Products</h2>
+            <div class="products-grid" id="productsGrid">
+                </div>
+        </div>
+    </section>
+
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button class="close-cart" id="closeCart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Your cart is empty</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: ₹<span id="cartTotal">0</span></strong>
+            </div>
+            <button class="btn btn-primary checkout-btn" id="checkoutBtn">Checkout</button>
+        </div>
+    </div>
+
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <div class="product-modal" id="productModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body" id="modalBody">
+                </div>
+        </div>
+    </div>
+
+    <div class="checkout-modal" id="checkoutModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeCheckoutModal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body">
+                <h2>Checkout & Payment</h2>
+                <div class="checkout-summary" id="checkoutSummary">
+                    </div>
+
+                <div class="payment-methods">
+                    <h3>Select Payment Method</h3>
+                    <div class="payment-option">
+                        <input type="radio" id="cod" name="payment" value="cod" checked>
+                        <label for="cod"><i class="fas fa-truck-loading"></i> Cash on Delivery (COD)</label>
+                    </div>
+                    <div class="payment-option">
+                        <input type="radio" id="card" name="payment" value="card">
+                        <label for="card"><i class="fas fa-credit-card"></i> Card / UPI (Simulated)</label>
+                    </div>
+                </div>
+
+                <div class="card-details-form" id="cardDetailsForm">
+                    <input type="text" id="cardNumber" placeholder="Card Number (16 digits)">
+                    <div class="card-row">
+                        <input type="text" id="cardExpiry" placeholder="MM/YY">
+                        <input type="text" id="cardCVV" placeholder="CVV">
+                    </div>
+                </div>
+
+                <button class="btn btn-primary modal-pay-btn" id="confirmPaymentBtn">
+                    Confirm Order & Pay
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Daily Essentials</h3>
+                    <p>Your trusted partner for everyday needs</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="aboutus.html">About</a></li>
+                    </ul>
+                </div>
+                   <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> +91 123 456 7890</p>
+                    <p><i class="fas fa-envelope"></i> info@dailyessentials.com</p>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Daily Essentials Store. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

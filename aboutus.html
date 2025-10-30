@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Daily Essentials Store</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-shopping-bag"></i>
+                <span>Daily Essentials</span>
+            </div>
+            <nav class="nav">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#products" class="nav-link">Products</a>
+                <a href="aboutus.html" class="nav-link active">About</a>
+            </nav>
+            <div class="header-actions">
+                <button class="cart-btn" id="cartBtn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="products-section" id="about">
+        <div class="container">
+            <h2 style="margin-bottom: 2rem;">Our Story: Quality, Convenience, Community</h2>
+            
+            <div class="about-section">
+                <div class="product-info" style="grid-column: span 2;">
+                    <h3>The Spark Behind Daily Essentials 💡</h3>
+                    <p>
+                        We started Daily Essentials with a simple frustration: grocery shopping shouldn't be a chore, and finding **high-quality, trustworthy everyday items** shouldn't be a struggle. We believe your time is better spent enjoying life, not hunting for pure milk or good hygiene products across five different stores.
+                    </p>
+                    <p>
+                        Our mission is to be your **one-stop digital shop** for essentials. We rigorously vet every product—from the farm-fresh milk to the durable batteries—to guarantee the quality you and your family deserve.
+                    </p>
+                </div>
+            </div>
+
+            <div class="about-values" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin: 4rem 0;">
+                <div class="value-card product-card" style="padding: 20px; text-align: center;">
+                    <i class="fas fa-hand-holding-usd" style="font-size: 2rem; color: var(--primary-color);"></i>
+                    <h4>Honest Pricing</h4>
+                    <p>We work directly with producers to keep prices fair for both you and the farmers.</p>
+                </div>
+                <div class="value-card product-card" style="padding: 20px; text-align: center;">
+                    <i class="fas fa-box-open" style="font-size: 2rem; color: var(--secondary-color);"></i>
+                    <h4>Quality Guarantee</h4>
+                    <p>Every product must pass our strict criteria for freshness, purity, and ethical sourcing.</p>
+                </div>
+                <div class="value-card product-card" style="padding: 20px; text-align: center;">
+                    <i class="fas fa-people-carry-box" style="font-size: 2rem; color: var(--accent-color);"></i>
+                    <h4>Reliable Delivery</h4>
+                    <p>We ensure fast, careful delivery so your daily needs arrive right on time.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem 0; border-top: 2px dashed var(--border-color);">
+                <h3>Ready to Shop Smarter?</h3>
+                <p>Explore our carefully curated categories and see the difference convenience and quality makes.</p>
+                <a href="index.html#products" class="btn btn-secondary" style="margin-top: 1rem;">Browse All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Daily Essentials</h3>
+                    <p>Your trusted partner for everyday needs</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#products">Products</a></li>
+                        <li><a href="aboutus.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> +91 123 456 7890</p>
+                    <p><i class="fas fa-envelope"></i> info@dailyessentials.com</p>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Daily Essentials Store. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    </body>
+</html>
