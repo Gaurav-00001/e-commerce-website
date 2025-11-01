@@ -1,15 +1,12 @@
 const products = [
     { 
         id: 1, name: "Fresh COW Milk", category: "groceries", price: 59, 
-        description: "Pure, fresh cow milk - 1 liter. Rich in calcium and vitamins, perfect for daily consumption.", image: "🐮"
+        description: "Pure, fresh cow milk - 1 liter. Rich in calcium and vitamins, perfect for daily consumption.", image: "🐄"
     },
+    
     { 
-        id: 2, name: "Fresh Toned Milk", category: "groceries", price: 57, 
-        description: "Pure, fresh Toned milk - 1 liter. Rich in calcium and vitamins, perfect for daily consumption.", image: "🥛"
-    },
-    { 
-        id: 3, name: "Fresh Full Cream Milk", category: "groceries", price: 70, 
-        description: "Pure, fresh fullcream milk - 1 liter. Rich in calcium and vitamins, perfect for daily consumption.", image: "🥛"
+        id: 3, name: "Fresh Buffalo Milk", category: "groceries", price: 70, 
+        description: "Pure, fresh fullcream milk - 1 liter. Rich in calcium and vitamins, perfect for daily consumption.", image: "🐃"
     },
     {
         id: 4, name: "Whole Wheat Bread", category: "groceries", price: 45, 
@@ -29,15 +26,15 @@ const products = [
     },
     {
         id: 8, name: "Sugar", category: "groceries", price: 50, 
-        description: "Pure white sugar - 1kg. Free-flowing, perfect for daily cooking needs.", image: "🍬"
+        description: "Pure white sugar - 1kg. Free-flowing, perfect for daily cooking needs.", image: "◽"
     },
     {
-        id: 9, name: "Salt", category: "groceries", price: 25, 
+        id: 9, name: "Salt", category: "groceries", price: 40, 
         description: "Iodized salt - 1kg. Essential for daily cooking and food preservation.", image: "🧂"
     },
     {
         id: 10, name: "Toothpaste", category: "hygiene", price: 95, 
-        description: "Fluoride toothpaste - 100g. For complete oral care and fresh breath.", image: "🦷"
+        description: "Fluoride toothpaste - 100g. For complete oral care and fresh breath.", image: "🪥🦷"
     },
     {
         id: 11, name: "Shampoo", category: "hygiene", price: 150, 
@@ -52,15 +49,15 @@ const products = [
         description: "Soft toilet paper - 4 rolls. Ultra-soft and absorbent for comfort.", image: "🧻"
     },
     {
-        id: 14, name: "Hand Sanitizer", category: "hygiene", price: 85, 
+        id: 14, name: "Hand Sanitizer", category: "hygiene", price: 55, 
         description: "Alcohol-based hand sanitizer - 250ml. Kills 99.9% of germs instantly.", image: "🧴"
     },
     {
-        id: 15, name: "Dish Soap", category: "household", price: 75, 
+        id: 15, name: "Liquid Dish Soap", category: "household", price: 75, 
         description: "Liquid dish soap - 500ml. Cuts through grease and removes tough stains.", image: "🧽"
     },
     {
-        id: 16, name: "Laundry Detergent", category: "household", price: 200, 
+        id: 16, name: "Laundry Detergent", category: "household", price: 187, 
         description: "Powerful laundry detergent - 1kg. Removes stains and keeps clothes fresh.", image: "🧺"
     },
     {
@@ -68,23 +65,23 @@ const products = [
         description: "Heavy-duty trash bags - 20 pieces. Leak-proof and tear-resistant.", image: "🗑️"
     },
     {
-        id: 18, name: "Batteries", category: "household", price: 150, 
+        id: 18, name: "Batteries", category: "household", price: 140, 
         description: "AA batteries - 4 pack. Long-lasting power for everyday devices.", image: "🔋"
     },
     {
-        id: 19, name: "Tea", category: "beverages", price: 180, 
+        id: 19, name: "Tea", category: "beverages", price: 40 ,
         description: "Premium tea leaves - 250g. Rich flavor and aroma for the perfect cup.", image: "🍵"
     },
     {
-        id: 20, name: "Coffee", category: "beverages", price: 250, 
+        id: 20, name: "Coffee pouch", category: "beverages", price: 10 , 
         description: "Ground coffee - 200g. Bold and aromatic, perfect for morning boost.", image: "☕"
     },
     {
-        id: 21, name: "apple Juice", category: "beverages", price: 100, 
-        description: "Fresh apple juice - 1 liter. 100% pure, no added sugar.", image: "🧃"
+        id: 21, name: "Desi Mosambi ka Juice", category: "beverages", price: 100, 
+        description: "Fresh mosambi juice - 1 liter. 100% pure, no added sugar.", image: "🍊"
     },
     {
-        id: 22, name: "Mineral Water", category: "beverages", price: 40, 
+        id: 22, name: "Beeeeslari", category: "beverages", price: 20, 
         description: "Pure mineral water - 1 liter. Clean, refreshing, and essential for hydration.", image: "💧"
     }
 ];
