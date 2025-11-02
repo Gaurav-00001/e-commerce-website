@@ -1,10 +1,10 @@
+// Product Data Array
 const products = [
     { 
         id: 1, name: "Fresh COW Milk", category: "groceries", price: 59, 
         description: "Pure, fresh cow milk - 1 liter. Rich in calcium and vitamins, perfect for daily consumption.", 
         image: "image/pexels-matthiaszomer-422202.jpg"
     },
-    
     { 
         id: 3, name: "Fresh Buffalo Milk", category: "groceries", price: 70, 
         description: "Pure, fresh fullcream milk - 1 liter. Rich in calcium and vitamins, perfect for daily consumption.", image:"image/pexels-hsapir-1054650.jpg"
@@ -28,7 +28,7 @@ const products = [
     {
         id: 8, name: "Sugar", category: "groceries", price: 50, 
         description: "Pure white sugar - 1kg. Free-flowing, perfect for daily cooking needs.",
-         image: "image/pexels-castorlystock-3693297.jpg"
+        image: "image/pexels-castorlystock-3693297.jpg"
     },
     {
         id: 9, name: "Salt", category: "groceries", price: 40, 
@@ -87,11 +87,11 @@ const products = [
         description: "Pure mineral water - 1 liter. Clean, refreshing, and essential for hydration.", image: "image/pexels-steve-1000084.jpg"
     }
 ];
-// Cart State
+
+// Cart State and DOM Elements
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 let currentCategory = 'all';
 
-// DOM Elements
 const productsGrid = document.getElementById('productsGrid');
 const cartBtn = document.getElementById('cartBtn');
 const cartSidebar = document.getElementById('cartSidebar');
@@ -106,6 +106,17 @@ const productModal = document.getElementById('productModal');
 const closeModal = document.getElementById('closeModal');
 const modalBody = document.getElementById('modalBody');
 
+// --- HELPER FUNCTION: Correctly renders the product image as an <img> tag ---
+function getImageHtml(product) {
+    if (product.image && (product.image.includes('/') || product.image.includes('.'))) {
+        // We assume 'image/' is the correct relative path. 
+        // We use the class 'actual-product-img' for styling the image element.
+        return `<img src="${product.image}" alt="${product.name}" class="actual-product-img">`;
+    }
+    // Fallback if image property is not a file path (e.g., if it were an emoji)
+    return product.image || ''; 
+}
+
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     renderProducts();
@@ -115,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Event Listeners
 function setupEventListeners() {
+    // UI Interactions
     cartBtn.addEventListener('click', openCart);
     closeCart.addEventListener('click', closeCartSidebar);
     cartOverlay.addEventListener('click', closeCartSidebar);
@@ -146,7 +158,7 @@ function setupEventListeners() {
     });
 }
 
-// Render Products
+// Render Products (Uses getImageHtml)
 function renderProducts() {
     const filteredProducts = currentCategory === 'all' 
         ? products 
@@ -154,10 +166,8 @@ function renderProducts() {
 
     productsGrid.innerHTML = filteredProducts.map(product => {
         
-        // NEW: Logic to determine if it's an image path or an emoji/text
-        const imageContent = product.image.includes('/') || product.image.includes('.') 
-            ? `<img src="${product.image}" alt="${product.name}" class="actual-product-img">`
-            : product.image; // Keep as text/emoji if not a file path
+        // Correctly injects the <img> tag
+        const imageContent = getImageHtml(product);
 
         return `
             <div class="product-card" onclick="openProductModal(${product.id})">
@@ -168,6 +178,7 @@ function renderProducts() {
                     <div class="product-description">${product.description}</div>
                     <div class="product-footer">
                         <div class="product-price">₹${product.price}</div>
+                        <!-- IMPORTANT: event.stopPropagation() prevents the product-card onclick from firing -->
                         <button class="add-to-cart" onclick="event.stopPropagation(); addToCart(${product.id})">
                             <i class="fas fa-cart-plus"></i> Add
                         </button>
@@ -178,7 +189,7 @@ function renderProducts() {
     }).join('');
 }
 
-// Add to Cart
+// Add to Cart Logic
 function addToCart(productId) {
     const product = products.find(p => p.id === productId);
     const existingItem = cart.find(item => item.id === productId);
@@ -215,10 +226,12 @@ function updateQuantity(productId, change) {
     }
 }
 
-// Update Cart UI
+// Update Cart UI (Uses getImageHtml)
 function updateCartUI() {
+    // Correctly computes total count
     cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
     
+    // Correctly computes total price (Accumulation logic is fine here)
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     cartTotal.textContent = total.toFixed(2);
 
@@ -232,7 +245,8 @@ function updateCartUI() {
     } else {
         cartItems.innerHTML = cart.map(item => `
             <div class="cart-item">
-                <div class="cart-item-image">${item.image}</div>
+                <!-- FIX: Uses getImageHtml for correct image rendering -->
+                <div class="cart-item-image">${getImageHtml(item)}</div>
                 <div class="cart-item-info">
                     <div class="cart-item-name">${item.name}</div>
                     <div class="cart-item-price">₹${item.price} each</div>
@@ -267,11 +281,13 @@ function closeCartSidebar() {
     document.body.style.overflow = '';
 }
 
-// Product Modal
+// Product Modal (Uses getImageHtml)
 function openProductModal(productId) {
     const product = products.find(p => p.id === productId);
+    
+    // FIX: Uses getImageHtml for correct image rendering
     modalBody.innerHTML = `
-        <div class="modal-product-image">${product.image}</div>
+        <div class="modal-product-image">${getImageHtml(product)}</div>
         <div class="modal-product-info">
             <div class="modal-product-category">${product.category}</div>
             <h2>${product.name}</h2>
@@ -294,7 +310,8 @@ function closeProductModal() {
 // Checkout
 function handleCheckout() {
     if (cart.length === 0) {
-        alert('Your cart is empty!');
+        // Changed alert() to a call to showNotification() for better UX
+        showNotification('Your cart is empty!', 'error'); 
         return;
     }
 
@@ -308,14 +325,18 @@ function saveCart() {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-// Notification
-function showNotification(message) {
+// Notification (Modified to accept type/color if needed)
+function showNotification(message, type = 'success') {
     const notification = document.createElement('div');
+    
+    // Set colors based on type
+    const bgColor = type === 'error' ? '#f44336' : 'var(--primary-color)';
+
     notification.style.cssText = `
         position: fixed;
         top: 100px;
         right: 20px;
-        background: var(--primary-color);
+        background: ${bgColor};
         color: white;
         padding: 1rem 2rem;
         border-radius: 5px;
@@ -332,7 +353,7 @@ function showNotification(message) {
     }, 2000);
 }
 
-// Add animation styles
+// Animation styles for notification
 const style = document.createElement('style');
 style.textContent = `
     @keyframes slideIn {
