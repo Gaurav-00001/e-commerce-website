@@ -38,7 +38,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000; /* High z-index to stay above content */
-    padding: 1rem 0;
+    padding: 0.75rem 0;
 }
 
 .header .container {
@@ -51,24 +51,25 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: bold;
     color: var(--primary-color);
 }
 
 .logo i {
-    font-size: 2rem;
+    font-size: 1.75rem;
 }
 
 .nav {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .nav-link {
     text-decoration: none;
     color: var(--text-color);
     font-weight: 500;
+    font-size: 0.95rem;
     transition: color 0.3s;
     position: relative;
 }
@@ -99,10 +100,10 @@ body {
     background: var(--primary-color);
     color: var(--white);
     border: none;
-    padding: 0.75rem 1.5rem;
+    padding: 0.6rem 1.25rem;
     border-radius: 25px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 0.9rem;
     transition: background 0.3s;
     display: flex;
     align-items: center;
@@ -1567,16 +1568,17 @@ body {
 
 /* Checkout Page Styles */
 .checkout-section {
-    padding: 2rem 0 4rem;
+    padding: 1.5rem 0 4rem;
     background: var(--light-color);
     min-height: calc(100vh - 200px);
 }
 
 .checkout-title {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: var(--dark-color);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
 }
 
 .checkout-container {
@@ -1590,15 +1592,17 @@ body {
 /* --- FIX: Sticky Summary (Summary Column) --- */
 .checkout-summary {
     background: var(--white); 
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 15px;
     box-shadow: var(--shadow);
     
     /* CRITICAL STICKY RULES */
     height: fit-content; /* Prevents stretching to the height of the taller form column */
     position: sticky;
-    top: 100px; /* Aligns it below the fixed header */
+    top: 80px; /* Aligns it below the fixed header */
     z-index: 500; /* Ensures it is clearly over the light background */
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
 }
 
 .checkout-summary h2 {
@@ -1695,7 +1699,7 @@ body {
 /* --- FIX: Form Container (Form Column) --- */
 .checkout-form-container {
     background: var(--white);
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 15px;
     box-shadow: var(--shadow);
     min-height: 80vh; /* Ensures the column is tall enough to scroll past the sticky summary */

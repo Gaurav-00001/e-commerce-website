@@ -1,163 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout - Daily Essentials Store</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Daily Essentials Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-shopping-bag"></i>
-                <span>Daily Essentials</span>
-            </div>
-            <nav class="nav">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="products.html" class="nav-link">Products</a>
-                <a href="aboutus.html" class="nav-link">About</a>
-                <a href="orders.html" class="nav-link">My Orders</a>
-            </nav>
-            <div class="header-actions">
-                <a href="products.html" class="cart-btn">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span>Shop</span>
-                </a>
-            </div>
-        </div>
-    </header>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-shopping-bag"></i>
+                <span>Daily Essentials</span>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="products.html" class="nav-link">Products</a>
+                <a href="aboutus.html" class="nav-link">About</a>
+                <a href="orders.html" class="nav-link">My Orders</a>
+            </nav>
+            <div class="header-actions">
+                <a href="products.html" class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Shop</span>
+                </a>
+            </div>
+        </div>
+    </header>
 
-    <!-- Checkout Section -->
-    <section class="checkout-section">
-        <div class="container">
-            <h1 class="checkout-title">Checkout</h1>
-            
-            <div class="checkout-container">
-                <!-- Order Summary -->
-                <div class="checkout-summary">
-                    <h2>Order Summary</h2>
-                    <div id="checkoutItems">
-                        <!-- Items will be loaded from cart -->
-                    </div>
-                    <div class="summary-total">
-                        <div class="summary-row">
-                            <span>Subtotal:</span>
-                            <span id="subtotalValue">₹0.00</span> <!-- Changed ID to subtotalValue -->
-                        </div>
-                        <div class="summary-row">
-                            <span>Delivery:</span>
-                            <span id="shippingValue">₹50.00</span> <!-- Added ID for dynamic update -->
-                        </div>
-                        <!-- ADDED: Discount row for full compatibility with script.js logic -->
+    <!-- Checkout Section -->
+    <section class="checkout-section">
+        <div class="container">
+            <h1 class="checkout-title">Checkout</h1>
+            
+            <div class="checkout-container">
+                <!-- Order Summary -->
+                <div class="checkout-summary">
+                    <h2>Order Summary</h2>
+                    <div id="checkoutItems">
+                        <!-- Items will be loaded from cart -->
+                    </div>
+                    <div class="summary-total">
                         <div class="summary-row">
-                            <span>Discount:</span>
-                            <span id="discountValue">₹0.00</span>
-                        </div>
-                        <div class="summary-row total-row">
-                            <span>Total:</span>
-                            <span id="grandTotalValue">₹0.00</span> <!-- Changed ID to grandTotalValue -->
-                        </div>
-                    </div>
-                </div>
+                            <span>Subtotal:</span>
+                            <span id="subtotalValue">₹0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Delivery:</span>
+                            <span id="shippingValue">₹50.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Discount:</span>
+                            <span id="discountValue">₹0.00</span>
+                        </div>
+                        <div class="summary-row total-row">
+                            <span>Total:</span>
+                            <span id="grandTotalValue">₹0.00</span>
+                        </div>
+                    </div>
+                </div>
 
-                <!-- Checkout Form -->
-                <div class="checkout-form-container">
-                    <form id="checkoutForm" class="checkout-form">
-                        <h2>Delivery Details</h2>
-                        
-                        <div class="form-group">
-                            <label for="fullName"><i class="fas fa-user"></i> Full Name *</label>
-                            <input type="text" id="fullName" name="fullName" required>
-                        </div>
+                <!-- Checkout Form -->
+                <div class="checkout-form-container">
+                    <form id="checkoutForm" class="checkout-form">
+                        <h2>Delivery Details</h2>
+                        
+                        <div class="form-group">
+                            <label for="fullName"><i class="fas fa-user"></i> Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
 
-                        <div class="form-group">
-                            <label for="phone"><i class="fas fa-phone"></i> Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}">
-                        </div>
+                        <div class="form-group">
+                            <label for="phone"><i class="fas fa-phone"></i> Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" placeholder="10-digit phone number">
+                        </div>
 
-                        <div class="form-group">
-                            <label for="email"><i class="fas fa-envelope"></i> Email Address *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-envelope"></i> Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
 
-                        <div class="form-group">
-                            <label for="address"><i class="fas fa-map-marker-alt"></i> Delivery Address *</label>
-                            <textarea id="address" name="address" rows="3" required></textarea>
-                        </div>
+                        <div class="form-group">
+                            <label for="address"><i class="fas fa-map-marker-alt"></i> Delivery Address *</label>
+                            <textarea id="address" name="address" rows="3" required></textarea>
+                        </div>
 
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="city"><i class="fas fa-city"></i> City *</label>
-                                <input type="text" id="city" name="city" required>
-                            </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city"><i class="fas fa-city"></i> City *</label>
+                                <input type="text" id="city" name="city" required>
+                            </div>
 
-                            <div class="form-group">
-                                <label for="pincode"><i class="fas fa-map-pin"></i> Pincode *</label>
-                                <input type="text" id="pincode" name="pincode" required pattern="[0-9]{6}">
-                            </div>
-                        </div>
+                            <div class="form-group">
+                                <label for="pincode"><i class="fas fa-map-pin"></i> Pincode *</label>
+                                <input type="text" id="pincode" name="pincode" required pattern="[0-9]{6}" placeholder="6-digit pincode">
+                            </div>
+                        </div>
 
-                        <h3>Payment Method</h3>
-                        <div class="payment-methods">
-                            <label class="payment-option">
-                                <input type="radio" name="payment" value="cash" checked>
-                                <i class="fas fa-money-bill-wave"></i>
-                                <span>Cash on Delivery</span>
-                            </label>
-                            <label class="payment-option">
-                                <input type="radio" name="payment" value="card">
-                                <i class="fas fa-credit-card"></i>
-                                <span>Credit/Debit Card</span>
-                            </label>
-                            <label class="payment-option">
-                                <input type="radio" name="payment" value="upi">
-                                <i class="fas fa-mobile-alt"></i>
-                                <span>UPI</span>
-                            </label>
-                        </div>
+                        <h3>Payment Method</h3>
+                        <div class="payment-methods">
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="cash" checked>
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Cash on Delivery</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="card">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Credit/Debit Card</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="upi">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>UPI</span>
+                            </label>
+                        </div>
 
-                        <button type="submit" class="btn btn-primary btn-place-order">
-                            <i class="fas fa-check"></i> Place Order
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+                        <button type="submit" class="btn btn-primary btn-place-order">
+                            <i class="fas fa-check"></i> Place Order
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Daily Essentials</h3>
-                    <p>Your trusted partner for everyday needs</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="orders.html">My Orders</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p><i class="fas fa-phone"></i> +91 123 456 7890</p>
-                    <p><i class="fas fa-envelope"></i> info@dailyessentials.com</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Daily Essentials Store. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Daily Essentials</h3>
+                    <p>Your trusted partner for everyday needs</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="aboutus.html">About</a></li>
+                        <li><a href="orders.html">My Orders</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> +91 123 456 7890</p>
+                    <p><i class="fas fa-envelope"></i> info@dailyessentials.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Daily Essentials Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-    <!-- NEW: Link to the external, shared script.js -->
     <script src="script.js"></script>
+    <script>
+        // Checkout page specific functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load cart from localStorage
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // If cart is empty, redirect to products page
+            if (cart.length === 0) {
+                alert('Your cart is empty! Redirecting to products page...');
+                window.location.href = 'products.html';
+                return;
+            }
+
+            // Helper function to get image HTML (same as in script.js)
+            function getImageHtml(product) {
+                if (product.image && (product.image.includes('/') || product.image.includes('.'))) {
+                    return `<img src="${product.image}" alt="${product.name}" class="actual-product-img">`;
+                }
+                return product.image || '';
+            }
+
+            // Render checkout items
+            const checkoutItems = document.getElementById('checkoutItems');
+            checkoutItems.innerHTML = cart.map(item => `
+                <div class="checkout-item">
+                    <div class="checkout-item-image">${getImageHtml(item)}</div>
+                    <div class="checkout-item-details">
+                        <div class="checkout-item-name">${item.name}</div>
+                        <div class="checkout-item-meta">
+                            <span>Qty: ${item.quantity}</span>
+                            <span class="checkout-item-price">₹${(item.price * item.quantity).toFixed(2)}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Calculate totals
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const shipping = 50;
+            const discount = 0;
+            const grandTotal = subtotal + shipping - discount;
+
+            // Update total displays
+            document.getElementById('subtotalValue').textContent = `₹${subtotal.toFixed(2)}`;
+            document.getElementById('shippingValue').textContent = `₹${shipping.toFixed(2)}`;
+            document.getElementById('discountValue').textContent = `₹${discount.toFixed(2)}`;
+            document.getElementById('grandTotalValue').textContent = `₹${grandTotal.toFixed(2)}`;
+
+            // Handle form submission
+            const checkoutForm = document.getElementById('checkoutForm');
+            checkoutForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                // Get form data
+                const formData = {
+                    fullName: document.getElementById('fullName').value,
+                    phone: document.getElementById('phone').value,
+                    email: document.getElementById('email').value,
+                    address: document.getElementById('address').value,
+                    city: document.getElementById('city').value,
+                    pincode: document.getElementById('pincode').value,
+                    payment: document.querySelector('input[name="payment"]:checked').value,
+                    cart: cart,
+                    totals: {
+                        subtotal: subtotal,
+                        shipping: shipping,
+                        discount: discount,
+                        grandTotal: grandTotal
+                    }
+                };
+
+                // Generate order ID
+                const orderId = 'ORD' + Date.now();
+                const trackingNumber = 'TRACK' + Math.random().toString(36).substr(2, 9).toUpperCase();
+
+                // Create order object
+                const order = {
+                    orderId: orderId,
+                    trackingNumber: trackingNumber,
+                    date: new Date().toISOString(),
+                    status: 'processing',
+                    total: grandTotal,
+                    subtotal: subtotal,
+                    shipping: shipping,
+                    discount: discount,
+                    ...formData
+                };
+
+                // Get existing orders from localStorage
+                const orders = JSON.parse(localStorage.getItem('orders')) || [];
+                orders.push(order);
+                localStorage.setItem('orders', JSON.stringify(orders));
+
+                // Clear cart
+                localStorage.removeItem('cart');
+
+                // Redirect to order confirmation page
+                window.location.href = `order-confirmation.html?orderId=${orderId}`;
+            });
+        });
+    </script>
 </body>
 </html>
+
